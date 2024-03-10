@@ -1,6 +1,7 @@
 import { faker } from "@faker-js/faker";
 import { User } from "./User";
 import { Company } from "./Company";
+import { CustomMap } from "./CustomMap";
 
 const user = new User(
   faker.person.firstName(),
@@ -17,5 +18,6 @@ const company = new Company(faker.company.name(), faker.company.catchPhrase(), {
   lat: faker.location.latitude(),
 });
 
-console.log(user);
-console.log(company);
+const map = new CustomMap("map");
+map.addMarker(user);
+map.addMarker(company);
